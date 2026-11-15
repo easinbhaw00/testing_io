@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17161b">
+<title>BANANA PORNO — Discover your next favorite</title>
+<link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem("bp-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="site">
+<header class="topbar"><div class="wrap bar">
+ <a class="brand" href="#home" aria-label="BANANA PORNO home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 19c5 4.5 13 5 19-4 1 7-3.5 12-10 12.5C10.5 28 6 24.5 6 19Z" fill="#dcae55"/><path d="M8 17.5C13 22 21 20 25 10" stroke="#8e6a22" stroke-width="2" fill="none" stroke-linecap="round"/><path d="m24.5 9.5 2.5-2.5" stroke="#8e6a22" stroke-width="2.2" stroke-linecap="round"/></svg></span>BANANA<b>PORNO</b></a>
+ <nav class="nav" aria-label="Primary"><a class="active" href="#home">Home</a><a href="#trending">Trending</a><a href="#latest">Latest</a><a href="#popular">Popular</a><a href="#categories">Categories</a><a href="#creators">Creators</a></nav>
+ <div class="actions">
+  <button class="ibtn" data-open="search" aria-label="Search" title="Search (/)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
+  <button class="ibtn" data-theme-toggle aria-label="Switch light or dark theme" title="Theme"><svg class="theme-ico" viewBox="0 0 24 24" aria-hidden="true"><circle class="core" cx="12" cy="12" r="4.5"/><g class="rays"><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></g><path class="moon" d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg></button>
+  <button class="ibtn menu-btn" data-open="menu" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <button class="join" id="accountBtn">Join now</button>
+ </div>
+</div></header>
+
+<main id="main" class="wrap" tabindex="-1">
+<section class="hero" id="home" aria-label="Featured">
+ <div class="hero-box" id="heroBox"><div id="heroSlides"></div>
+  <div class="hctrl">
+   <button class="ibtn" data-hero="-1" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
+   <div class="dots" id="dots"></div>
+   <button class="ibtn" data-hero="1" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+   <button class="ibtn" id="heroPlay" aria-label="Pause slider"></button>
+  </div>
+ </div>
+</section>
+<section class="sec" id="categories"><div class="sh"><div><h2>Categories</h2><p>Pick a category to filter the rows below</p></div></div>
+ <div class="cats" id="gCats"></div>
+ <p class="qbar" id="qBar" hidden>Showing results for “<span></span>” <button data-clearq>Clear</button></p>
+</section>
+<section class="sec" id="continue"><div class="sh"><div><h2>Continue watching</h2><p>Pick up where you stopped</p></div></div><div class="cont" id="gCont"></div></section>
+<section class="sec" id="trending"><div class="sh"><div><h2>Trending</h2><p>What viewers are exploring right now</p></div><a href="#latest">See all →</a></div><div class="grid" id="gTrending"></div></section>
+<section class="sec" id="latest"><div class="sh"><div><h2>Latest releases</h2><p>Fresh picks, recently added</p></div><a href="#latest">View all →</a></div><div class="grid" id="gLatest"></div></section>
+<section class="sec" id="popular"><div class="sh"><div><h2>Popular</h2><p>Top-rated by the community</p></div></div><div class="grid" id="gPopular"></div></section>
+<section class="sec" id="recommended"><div class="sh"><div><h2>Recommended</h2><p>Picked to match your taste</p></div></div><div class="grid" id="gRec"></div></section>
+<section class="sec" id="creators"><div class="sh"><div><h2>Creator spotlight</h2><p>Follow the creators you want to hear from</p></div></div><div class="creators" id="gCreators"></div></section>
+<section class="sec" id="favorites"><div class="sh"><div><h2>Your favorites</h2><p>Saved to this browser</p></div></div><div class="grid" id="gFav"></div></section>
+</main>
+
+<footer class="footer"><div class="wrap fl">
+ <span>© 2026 BANANA PORNO · Demo interface for lawful, consent-based 18+ content.</span>
+ <nav class="flinks"><button data-info="About">About</button><button data-info="Privacy">Privacy</button><button data-info="Terms">Terms</button><button data-info="Content removal">Content removal</button><button data-info="Help">Help</button></nav>
+</div></footer>
+
+<nav class="bnav" aria-label="Mobile navigation">
+ <a class="on" href="#home" data-bn><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v8.5a.5.5 0 0 1-.5.5H15v-6H9v6H4.5a.5.5 0 0 1-.5-.5Z"/></svg>Home</a>
+ <button data-open="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Search</button>
+ <a href="#categories" data-bn><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>Browse</a>
+ <a href="#favorites" data-bn><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>Saved</a>
+ <button data-open="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+</nav>
+</div>
+
+<dialog id="ageDlg" aria-labelledby="ageT"><div class="panel">
+ <div class="mark lg" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 19c5 4.5 13 5 19-4 1 7-3.5 12-10 12.5C10.5 28 6 24.5 6 19Z" fill="#dcae55"/></svg></div>
+ <span class="ageBadge">AGE-RESTRICTED EXPERIENCE</span>
+ <h2 id="ageT">Welcome to a more personal experience</h2>
+ <p>This demo is intended only for adults aged 18 or older. By continuing you confirm that you meet the legal age requirement where you live and agree to view only lawful, consensual, fictional placeholder content.</p>
+ <div class="btns"><button class="btn gold" id="ageYes">I am 18 or older</button><button class="btn ghost" id="ageNo">Exit</button></div>
+ <p class="fine">Front-end confirmation only. This is not legally sufficient age verification.</p>
+</div></dialog>
+
+<dialog id="searchDlg" aria-labelledby="sT"><div class="panel sdlg">
+ <div class="dhead"><h2 id="sT">Search</h2><button class="ibtn" data-close aria-label="Close search"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+ <label class="sfield"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="q" type="search" placeholder="Search titles, categories or creators" autocomplete="off" aria-label="Search titles, categories or creators"></label>
+ <p class="count" id="qCount" aria-live="polite"></p>
+ <div class="grid sgrid" id="gSearch"></div>
+</div></dialog>
+
+<dialog id="detDlg" aria-labelledby="dT"><div class="panel dpanel">
+ <button class="ibtn close" data-close aria-label="Close details"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+ <div class="dart" id="dArt"><span class="glyph" id="dGlyph" aria-hidden="true"></span></div>
+ <div class="dbody">
+  <span class="ageBadge" id="dCat"></span>
+  <h2 id="dT"></h2>
+  <div class="meta" id="dMeta"></div>
+  <p id="dDesc"></p>
+  <div class="btns"><button class="btn gold" data-play>▶ Play preview</button><button class="btn ghost" id="dFav" data-dfav>♡ Save</button></div>
+  <p class="fine">Placeholder content. No real media is streamed in this prototype.</p>
+ </div>
+</div></dialog>
+
+<dialog id="menuDlg" aria-label="Menu"><div class="panel mpanel">
+ <div class="dhead"><strong>Menu</strong><button class="ibtn" data-close aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+ <nav class="mlinks"><a href="#home">Home</a><a href="#trending">Trending</a><a href="#latest">Latest releases</a><a href="#popular">Popular</a><a href="#categories">Categories</a><a href="#creators">Creators</a><a href="#favorites">Favorites</a><button data-theme-toggle>Switch theme</button></nav>
+</div></dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<section id="declined" hidden><div><h1>Access declined</h1><p>This experience is restricted to adults.</p></div></section>
+<script src="app.js"></script>
+</body>
+</html>
