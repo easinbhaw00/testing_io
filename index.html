@@ -2,100 +2,2349 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#17161b">
-<title>BANANA PORNO — Discover your next favorite</title>
-<link rel="stylesheet" href="styles.css">
-<script>try{var t=localStorage.getItem("bp-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121116">
+<title>BANANA PORNO — Video Library</title>
+<style>
+:root {
+  /* Dark Theme: Soft Charcoal, Muted Purple, Warm Banana Gold */
+  --bg: #121116;
+  --bg-elevated: #18161f;
+  --panel: #1c1a24;
+  --panel-2: #24212e;
+  --panel-hover: #2b2737;
+  --text: #f3f1f7;
+  --text-soft: #cdc8d8;
+  --muted: #938da3;
+  --line: #2d293a;
+  --line-strong: #3d374e;
+
+  --purple: #7d63a8;
+  --purple-deep: #4e3b6e;
+  --purple-soft: rgba(125, 99, 168, 0.16);
+  --purple-glow: rgba(125, 99, 168, 0.28);
+
+  --gold: #eab93c;
+  --gold-bright: #f5cd5b;
+  --gold-deep: #c4921c;
+  --gold-soft: rgba(234, 185, 60, 0.15);
+  --gold-ink: #19150c;
+
+  --header-bg: rgba(18, 17, 22, 0.84);
+  --shadow-sm: 0 6px 18px rgba(6, 5, 10, 0.28);
+  --shadow-md: 0 16px 40px rgba(6, 5, 10, 0.42);
+  --shadow-lg: 0 28px 70px rgba(4, 3, 8, 0.65);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme="light"] {
+  /* Light Theme: Soft Off-White, White Surfaces, Muted Purple, Warm Gold */
+  --bg: #f6f5f9;
+  --bg-elevated: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #eeecf4;
+  --panel-hover: #e6e2f0;
+  --text: #191622;
+  --text-soft: #3a3449;
+  --muted: #6c657d;
+  --line: #e2dfec;
+  --line-strong: #cfc9de;
+
+  --purple: #6b5296;
+  --purple-deep: #4f3a73;
+  --purple-soft: rgba(107, 82, 150, 0.11);
+  --purple-glow: rgba(107, 82, 150, 0.2);
+
+  --gold: #d8a224;
+  --gold-bright: #eab93c;
+  --gold-deep: #ad7e12;
+  --gold-soft: rgba(216, 162, 36, 0.14);
+  --gold-ink: #1b160b;
+
+  --header-bg: rgba(246, 245, 249, 0.88);
+  --shadow-sm: 0 6px 18px rgba(34, 27, 53, 0.06);
+  --shadow-md: 0 16px 38px rgba(34, 27, 53, 0.09);
+  --shadow-lg: 0 28px 65px rgba(34, 27, 53, 0.16);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.55 "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4.5vw, 64px);
+}
+
+/* ================= STICKY HEADER ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--header-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.top {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+/* Distinctive Logo Mark: Muted Purple emblem with Warm Banana-Gold center banana */
+.logoMark {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--purple) 0%, var(--purple-deep) 100%);
+  border: 1px solid rgba(234, 185, 60, 0.38);
+  box-shadow: 0 6px 18px var(--purple-glow), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  flex-shrink: 0;
+}
+
+.brand:hover .logoMark {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 10px 24px var(--purple-glow), 0 0 0 2px var(--gold-soft);
+}
+
+.logoMark svg {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 2px 4px rgba(15, 10, 25, 0.45));
+}
+
+.brandText {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.brandText .accent {
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 12px;
+}
+
+.nav a {
+  font-size: 13.5px;
+  font-weight: 650;
+  color: var(--muted);
+  padding: 8px 13px;
+  border-radius: 10px;
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+  position: relative;
+}
+
+.nav a:hover {
+  color: var(--text);
+  background: var(--purple-soft);
+}
+
+.nav a.active {
+  color: var(--text);
+  background: var(--panel-2);
+}
+
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.iconbtn {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s var(--ease), border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+  position: relative;
+}
+
+.iconbtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--purple);
+  background: var(--panel-2);
+}
+
+.iconbtn svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* Animated Theme Toggle Icon */
+.themeBtn {
+  overflow: hidden;
+}
+
+.themeSvg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.5s var(--ease);
+}
+
+.themeSvg .sunCore {
+  transition: transform 0.45s var(--ease), opacity 0.35s var(--ease);
+  transform-origin: 12px 12px;
+}
+
+.themeSvg .sunRays {
+  transition: transform 0.5s var(--ease), opacity 0.35s var(--ease);
+  transform-origin: 12px 12px;
+}
+
+.themeSvg .moonMask {
+  transition: transform 0.45s var(--ease);
+}
+
+[data-theme="dark"] .themeSvg {
+  transform: rotate(-12deg);
+}
+[data-theme="dark"] .themeSvg .sunRays {
+  opacity: 0;
+  transform: scale(0.4) rotate(45deg);
+}
+[data-theme="dark"] .themeSvg .sunCore {
+  transform: scale(1.15);
+}
+[data-theme="dark"] .themeSvg .moonMask {
+  transform: translate(0, 0);
+}
+
+[data-theme="light"] .themeSvg {
+  transform: rotate(90deg);
+  color: var(--gold-deep);
+}
+[data-theme="light"] .themeSvg .sunRays {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+[data-theme="light"] .themeSvg .sunCore {
+  transform: scale(0.72);
+}
+[data-theme="light"] .themeSvg .moonMask {
+  transform: translate(11px, -11px);
+}
+
+.favBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 99px;
+  background: var(--gold);
+  color: var(--gold-ink);
+  font-size: 10.5px;
+  font-weight: 850;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.favBadge.hidden { display: none; }
+
+.join {
+  border: 1px solid rgba(234, 185, 60, 0.45);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+  color: #f8f6fc;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 750;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 6px 18px var(--purple-glow);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), filter 0.2s var(--ease);
+}
+
+.join:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 10px 24px var(--purple-glow);
+}
+
+.joinDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.mobilemenu { display: none; }
+
+/* Live Search Overlay / Bar */
+.searchbar {
+  display: none;
+  padding: 0 0 16px;
+  animation: slideDown 0.22s var(--ease);
+}
+.searchbar.open { display: block; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.searchfield {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 4px 8px 4px 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.searchfield:focus-within {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px var(--purple-soft), var(--shadow-md);
+}
+
+.searchfield input {
+  background: none;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 11px 0;
+  font-size: 14.5px;
+}
+
+.searchfield input::placeholder { color: var(--muted); }
+
+.searchMetaBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.searchQuickTags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.quickTag {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+  border-radius: 99px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  transition: 0.2s var(--ease);
+}
+
+.quickTag:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Mobile Drawer Menu */
+.mobileDrawer {
+  display: none;
+  border-top: 1px solid var(--line);
+  background: var(--bg-elevated);
+  padding: 14px 0 18px;
+}
+.mobileDrawer.open { display: block; }
+.mobileLinks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.mobileLinks a {
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  font-size: 13.5px;
+  font-weight: 650;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mobileLinks a.active {
+  border-color: var(--purple);
+  background: var(--purple-soft);
+}
+
+/* ================= HERO SLIDER ================= */
+.hero {
+  padding: 26px 0 18px;
+}
+
+.heroBox {
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(circle at 82% 24%, rgba(234, 185, 60, 0.22) 0%, transparent 38%),
+    radial-gradient(circle at 68% 72%, rgba(125, 99, 168, 0.42) 0%, transparent 48%),
+    linear-gradient(118deg, #171520 0%, #241d34 52%, #15141c 100%);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  transition: background 0.5s var(--ease);
+}
+
+/* Subtle 3D-depth emblem in hero background */
+.heroVisual {
+  position: absolute;
+  right: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 340px;
+  height: 340px;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  opacity: 0.9;
+}
+
+.heroOrb {
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, rgba(234, 185, 60, 0.28), rgba(125, 99, 168, 0.22) 55%, transparent 72%);
+  border: 1px solid rgba(234, 185, 60, 0.18);
+  box-shadow: inset 0 0 45px rgba(125, 99, 168, 0.25);
+}
+
+.heroVisualCard {
+  position: relative;
+  width: 220px;
+  height: 265px;
+  border-radius: 24px;
+  background: linear-gradient(155deg, rgba(44, 37, 64, 0.85), rgba(22, 19, 32, 0.92));
+  border: 1px solid rgba(234, 185, 60, 0.3);
+  box-shadow: 0 26px 55px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  transform: rotate(4deg);
+  transition: transform 0.5s var(--ease);
+}
+
+.heroBox:hover .heroVisualCard {
+  transform: rotate(2deg) translateY(-4px);
+}
+
+.heroCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heroPill {
+  background: var(--gold-soft);
+  border: 1px solid rgba(234, 185, 60, 0.4);
+  color: var(--gold-bright);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  border-radius: 99px;
+}
+
+.heroVisualCenter {
+  display: grid;
+  place-items: center;
+}
+
+.heroVisualCenter svg {
+  width: 84px;
+  height: 84px;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.45));
+}
+
+.heroCardMeta {
+  color: #ebe8f2;
+}
+.heroCardMeta strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+}
+.heroCardMeta span {
+  font-size: 11.5px;
+  color: #aca5bd;
+}
+
+.heroBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(18, 16, 25, 0.95) 0%, rgba(18, 16, 25, 0.78) 48%, rgba(18, 16, 25, 0.15) 100%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 54px clamp(24px, 5.5%, 68px);
+  max-width: 660px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: rgba(125, 99, 168, 0.22);
+  border: 1px solid rgba(125, 99, 168, 0.42);
+  color: var(--gold-bright);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--gold);
+}
+
+h1 {
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  margin: 18px 0 16px;
+  font-weight: 900;
+  color: #f6f4fa;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--gold-bright);
+}
+
+.heroContent p {
+  max-width: 500px;
+  color: #cbc5d8;
+  font-size: 15.5px;
+  line-height: 1.65;
+  margin: 0 0 26px;
+}
+
+.heroBtns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primary, .secondary {
+  border-radius: 13px;
+  padding: 13px 20px;
+  font-weight: 750;
+  font-size: 13.5px;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.primary {
+  background: var(--gold);
+  color: var(--gold-ink);
+  box-shadow: 0 8px 22px rgba(234, 185, 60, 0.26);
+}
+
+.primary:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(234, 185, 60, 0.34);
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f2f8;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.secondary:hover {
+  background: rgba(125, 99, 168, 0.26);
+  border-color: rgba(125, 99, 168, 0.55);
+  transform: translateY(-2px);
+}
+
+.slideControls {
+  position: absolute;
+  z-index: 3;
+  right: 26px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 14, 21, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 6px 10px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slideDot {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.38);
+  padding: 0;
+  transition: width 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+
+.slideDot.active {
+  width: 24px;
+  background: var(--gold);
+}
+
+.slideArrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  line-height: 1;
+  transition: 0.2s var(--ease);
+}
+
+.slideArrow:hover {
+  background: var(--purple);
+  border-color: var(--gold);
+}
+
+/* ================= SECTIONS & HEADERS ================= */
+.section {
+  padding: 24px 0;
+  scroll-margin-top: 86px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.sectionTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.secIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--purple-soft);
+  border: 1px solid rgba(125, 99, 168, 0.28);
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.secIcon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sectionHead h2 {
+  font-size: 21px;
+  letter-spacing: -0.025em;
+  margin: 0;
+  font-weight: 850;
+}
+
+.sectionHead p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.seeall {
+  font-size: 12.5px;
+  color: var(--purple);
+  font-weight: 750;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: var(--purple-soft);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: 0.2s var(--ease);
+}
+
+[data-theme="dark"] .seeall {
+  color: var(--gold);
+}
+
+.seeall:hover {
+  border-color: var(--purple);
+  transform: translateX(2px);
+}
+
+/* Compact horizontal category navigation near the top */
+.categoryBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 2px 8px;
+  margin-bottom: 4px;
+  min-width: 0;
+}
+.categoryBarLabel {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.categoryBar .chips {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 2px 0 5px;
+}
+.categoryBar .chip {
+  padding: 7px 12px;
+  font-size: 11.5px;
+}
+.categoryReset { flex: 0 0 auto; }
+@media (max-width: 680px) {
+  .categoryBar { gap: 8px; padding: 10px 0 6px; }
+  .categoryBarLabel { display: none; }
+  .categoryBar .chip { padding: 7px 11px; }
+  .categoryReset { font-size: 11px; padding: 6px 8px; }
+}
+
+/* ================= CATEGORY CHIPS ================= */
+.chips {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  padding: 2px 0 10px;
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar { display: none; }
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text-soft);
+  padding: 9px 16px;
+  border-radius: 99px;
+  white-space: nowrap;
+  font-size: 12.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--purple);
+  background: var(--panel-2);
+  transform: translateY(-1px);
+}
+
+.chip.active {
+  background: var(--purple);
+  color: #ffffff;
+  border-color: var(--purple);
+  box-shadow: 0 6px 18px var(--purple-glow);
+}
+
+.chipCount {
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border-radius: 99px;
+  background: rgba(0, 0, 0, 0.18);
+  color: inherit;
+}
+
+[data-theme="light"] .chip:not(.active) .chipCount {
+  background: var(--panel-2);
+}
+
+/* Active Filter Banner */
+.filterStatus {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 16px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  background: var(--purple-soft);
+  border: 1px solid rgba(125, 99, 168, 0.35);
+  font-size: 13px;
+}
+.filterStatus.show { display: flex; }
+
+.clearFilterBtn {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.clearFilterBtn:hover { border-color: var(--gold); }
+
+/* ================= MEDIA CARDS & GRIDS ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  min-width: 0;
+  cursor: pointer;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 9px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+  box-shadow: var(--shadow-md);
+}
+
+.poster {
+  aspect-ratio: 16 / 10;
+  border-radius: 11px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+}
+
+.poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.26), transparent 40%),
+    linear-gradient(180deg, transparent 45%, rgba(12, 10, 18, 0.72) 100%);
+}
+
+/* Clean 2D geometric artwork with subtle 3D depth */
+.posterArt {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.artBadge3d {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: rgba(20, 17, 29, 0.42);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  display: grid;
+  place-items: center;
+  color: var(--gold-bright);
+  transition: transform 0.28s var(--ease);
+}
+
+.card:hover .artBadge3d {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.artBadge3d svg {
+  width: 28px;
+  height: 28px;
+}
+
+.quality {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  background: var(--gold);
+  color: var(--gold-ink);
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 9.5px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.duration {
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  background: rgba(14, 13, 19, 0.82);
+  color: #f4f2f8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 10.5px;
+  font-weight: 750;
+}
+
+.fav {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  background: rgba(14, 13, 19, 0.65);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.fav:hover {
+  transform: scale(1.08);
+  background: var(--purple);
+}
+
+.fav.saved {
+  color: var(--gold);
+  background: rgba(24, 20, 35, 0.88);
+  border-color: var(--gold);
+}
+
+/* Continue Watching Progress Bar */
+.progressTrack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--gold));
+  border-radius: 0 3px 3px 0;
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 4px 3px;
+}
+
+.cardInfo h3 {
+  font-size: 13.5px;
+  margin: 0;
+  font-weight: 750;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.rating {
+  font-size: 11px;
+  color: var(--gold-deep);
+  background: var(--gold-soft);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .rating {
+  color: var(--gold);
+}
+
+/* ================= CREATOR SPOTLIGHT ================= */
+.creatorRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease);
+}
+
+.creator:hover {
+  transform: translateY(-3px);
+  border-color: var(--purple);
+}
+
+.creatorLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--purple), var(--purple-deep));
+  border: 1px solid rgba(234, 185, 60, 0.35);
+  color: var(--gold-bright);
+  font-weight: 900;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.creator strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.creator small {
+  display: block;
+  color: var(--muted);
+  font-size: 11.5px;
+  margin-top: 2px;
+}
+
+.followBtn {
+  border: 1px solid var(--line-strong);
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 6px 11px;
+  font-size: 11.5px;
+  font-weight: 750;
+  flex-shrink: 0;
+  transition: 0.2s var(--ease);
+}
+
+.followBtn:hover {
+  border-color: var(--purple);
+}
+
+.followBtn.following {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  color: var(--gold-deep);
+}
+
+[data-theme="dark"] .followBtn.following {
+  color: var(--gold);
+}
+
+/* ================= EMPTY STATE ================= */
+.empty {
+  grid-column: 1 / -1;
+  padding: 34px 20px;
+  text-align: center;
+  border: 1px dashed var(--line-strong);
+  background: var(--panel);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding: 34px 0 48px;
+  color: var(--muted);
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.footlinks {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footlinks a:hover {
+  color: var(--gold);
+}
+
+/* ================= MOBILE BOTTOM NAVIGATION ================= */
+.bottomNav {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 38;
+  background: var(--header-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid var(--line);
+  padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+}
+
+.bottomNavInner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+
+.bNavItem {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 6px 2px;
+  border-radius: 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.bNavItem svg {
+  width: 19px;
+  height: 19px;
+}
+
+.bNavItem.active, .bNavItem:hover {
+  color: var(--gold);
+  background: var(--purple-soft);
+}
+
+/* ================= DIALOGS & 18+ CONFIRMATION ================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 7, 13, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.overlay.show {
+  display: flex;
+  animation: fadeIn 0.22s var(--ease);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  width: min(500px, 100%);
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xl);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  text-align: center;
+}
+
+.modalLogo {
+  margin: 0 auto 16px;
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--purple) 0%, var(--purple-deep) 100%);
+  border: 1px solid rgba(234, 185, 60, 0.45);
+  box-shadow: 0 12px 28px var(--purple-glow);
+}
+
+.modalLogo svg {
+  width: 38px;
+  height: 38px;
+}
+
+.ageBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(234, 185, 60, 0.4);
+  background: var(--gold-soft);
+  color: var(--gold);
+  border-radius: 99px;
+  padding: 6px 13px;
+  font-size: 10.5px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+[data-theme="light"] .ageBadge {
+  color: var(--gold-deep);
+}
+
+.modal h2 {
+  font-size: 26px;
+  letter-spacing: -0.03em;
+  margin: 12px 0 10px;
+  font-weight: 900;
+}
+
+.modal p {
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 410px;
+}
+
+.previewMeta {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0 16px;
+}
+
+.previewTag {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-soft);
+}
+
+.previewScreen {
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  margin: 14px 0 16px;
+  background: linear-gradient(135deg, var(--purple-deep), #1c1926);
+  border: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #f4f2f8;
+  position: relative;
+  overflow: hidden;
+}
+
+.previewPlayCircle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--gold-ink);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(234, 185, 60, 0.35);
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.modalActions button {
+  flex: 1;
+  justify-content: center;
+}
+
+.modalSecondaryBtn {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+}
+
+.modalSecondaryBtn:hover {
+  border-color: var(--purple);
+  background: var(--panel-hover);
+}
+
+.fine {
+  font-size: 11px !important;
+  margin-top: 16px !important;
+  opacity: 0.85;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1080px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .creatorRow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .heroVisual { right: 3%; width: 280px; height: 280px; }
+  .heroVisualCard { width: 195px; height: 235px; }
+}
+
+@media (max-width: 820px) {
+  .nav { display: none; }
+  .mobilemenu { display: grid; }
+  .heroVisual { display: none; }
+  .heroBox::after {
+    background: linear-gradient(180deg, rgba(20, 18, 28, 0.72) 0%, rgba(20, 18, 28, 0.94) 100%);
+  }
+}
+
+@media (max-width: 680px) {
+  body { padding-bottom: 68px; }
+  .top { height: 64px; gap: 10px; }
+  .brand { font-size: 17.5px; }
+  .logoMark { width: 35px; height: 35px; border-radius: 11px; }
+  .join { display: none; }
+  .hero { padding-top: 16px; }
+  .heroBox { min-height: 390px; border-radius: 22px; }
+  .heroContent { padding: 32px 22px 74px; }
+  .slideControls { right: 16px; bottom: 16px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .card { padding: 7px; }
+  .creatorRow { grid-template-columns: 1fr; }
+  .bottomNav { display: block; }
+  footer { padding-bottom: 36px; }
+}
+
+@media (max-width: 400px) {
+  .grid { gap: 10px; }
+  .cardInfo h3 { font-size: 12.5px; }
+  .modal { padding: 24px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+</style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-<div id="site">
-<header class="topbar"><div class="wrap bar">
- <a class="brand" href="#home" aria-label="BANANA PORNO home"><span class="mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 19c5 4.5 13 5 19-4 1 7-3.5 12-10 12.5C10.5 28 6 24.5 6 19Z" fill="#dcae55"/><path d="M8 17.5C13 22 21 20 25 10" stroke="#8e6a22" stroke-width="2" fill="none" stroke-linecap="round"/><path d="m24.5 9.5 2.5-2.5" stroke="#8e6a22" stroke-width="2.2" stroke-linecap="round"/></svg></span>BANANA<b>PORNO</b></a>
- <nav class="nav" aria-label="Primary"><a class="active" href="#home">Home</a><a href="#trending">Trending</a><a href="#latest">Latest</a><a href="#popular">Popular</a><a href="#categories">Categories</a><a href="#creators">Creators</a></nav>
- <div class="actions">
-  <button class="ibtn" data-open="search" aria-label="Search" title="Search (/)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
-  <button class="ibtn" data-theme-toggle aria-label="Switch light or dark theme" title="Theme"><svg class="theme-ico" viewBox="0 0 24 24" aria-hidden="true"><circle class="core" cx="12" cy="12" r="4.5"/><g class="rays"><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"/></g><path class="moon" d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2Z"/></svg></button>
-  <button class="ibtn menu-btn" data-open="menu" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-  <button class="join" id="accountBtn">Join now</button>
- </div>
-</div></header>
 
-<main id="main" class="wrap" tabindex="-1">
-<section class="hero" id="home" aria-label="Featured">
- <div class="hero-box" id="heroBox"><div id="heroSlides"></div>
-  <div class="hctrl">
-   <button class="ibtn" data-hero="-1" aria-label="Previous slide"><svg viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></button>
-   <div class="dots" id="dots"></div>
-   <button class="ibtn" data-hero="1" aria-label="Next slide"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
-   <button class="ibtn" id="heroPlay" aria-label="Pause slider"></button>
+<!-- Reusable SVG Symbols for Banana Mark & Clean 2D/3D-depth Icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Slightly peeled banana with a subtle white glossy drip -->
+    <g id="banana-emblem">
+      <!-- Soft shadow -->
+      <path d="M9.2 20.8c4.2 4.1 12.2 4.1 16.1-3.8.8 6.7-3.5 11.1-9.8 11.4-4.1.2-6.7-2.6-6.3-7.6Z" fill="#7a5608" opacity=".48"/>
+      <!-- Banana body -->
+      <path d="M10.2 19.7c4.2 3.8 11.3 2.9 14.9-4.6.7 6.2-3.2 10.8-8.8 11.4-4.1.4-6.8-2.2-6.1-6.8Z" fill="#eab93c"/>
+      <path d="M11.5 19.7c3.7 2.6 8.7 2.2 12.1-3.3-.9 4.7-4.1 7.3-7.7 7.5-2.3.1-3.8-1.3-4.4-4.2Z" fill="#fae08c"/>
+      <!-- Slightly opened peel, left and right -->
+      <path d="M10.8 20.1 7.5 23.4c-.8.8-.5 2.1.5 2.4 1.8.5 3.6-.6 4.3-2.3l.8-1.9Z" fill="#dca82d" stroke="#f5cd5b" stroke-width=".65"/>
+      <path d="m23.5 17.1 3.7-1.2c1.1-.4 2.1.5 1.8 1.6-.5 1.8-2.2 2.9-4 2.7l-2-.3Z" fill="#dca82d" stroke="#f5cd5b" stroke-width=".65"/>
+      <!-- Stem -->
+      <path d="m24.5 13.9 2-2" stroke="#fae08c" stroke-width="2" stroke-linecap="round"/>
+      <!-- Small white glossy liquid flowing from above -->
+      <path d="M15.2 4.2c-.2 2.1 1.2 2.8 1.1 4.5-.1 1.2-.9 1.8-1.1 2.9-.2 1.3.6 2.2 1.8 2.2 1.1 0 1.7-.8 1.7-1.8 0-.9-.6-1.5-.5-2.4.1-1.1 1.2-1.7 1.1-3.1-.1-1-.7-1.8-1.5-2.6" fill="#fff" opacity=".96"/>
+      <path d="M17.1 5.1c-.1 1.5.8 2.1.7 3.3" stroke="#e9e6f0" stroke-width=".7" stroke-linecap="round"/>
+      <circle cx="15.4" cy="12.4" r=".75" fill="#fff"/>
+    </g>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap top">
+    <a class="brand" href="#home" aria-label="BANANA PORNO home">
+      <span class="logoMark">
+        <svg viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <use href="#banana-emblem"/>
+        </svg>
+      </span>
+      <span class="brandText">BANANA <span class="accent">PORNO</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="active" href="#home" data-nav="home">Home</a>
+      <a href="#trending" data-nav="trending">Trending</a>
+      <a href="#latest" data-nav="latest">Latest</a>
+      <a href="#popular" data-nav="popular">Popular</a>
+      <a href="#categories" data-nav="categories">Categories</a>
+      <a href="#creators" data-nav="creators">Creators</a>
+    </nav>
+
+    <div class="actions">
+      <button class="iconbtn" id="searchToggle" aria-label="Toggle search overlay" aria-expanded="false" title="Search ( / )">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="6.5"/>
+          <path d="m16 16 4.5 4.5"/>
+        </svg>
+      </button>
+
+      <a class="iconbtn" href="#favorites" aria-label="Saved favorites" title="Saved favorites">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20.5s-7-4.4-7-10.1A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7 3.4c0 5.7-7 10.1-7 10.1Z"/>
+        </svg>
+        <span class="favBadge hidden" id="favCountBadge">0</span>
+      </a>
+
+      <button class="iconbtn themeBtn" id="themeToggle" aria-label="Switch color theme" title="Toggle Dark / Light theme">
+        <svg class="themeSvg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <defs>
+            <mask id="moon-cutout">
+              <rect x="0" y="0" width="24" height="24" fill="white"/>
+              <circle class="moonMask" cx="16.5" cy="7.5" r="6.5" fill="black"/>
+            </mask>
+          </defs>
+          <circle class="sunCore" cx="12" cy="12" r="6.5" fill="currentColor" stroke="none" mask="url(#moon-cutout)"/>
+          <g class="sunRays">
+            <path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.55 1.55M17.52 17.52l1.55 1.55M2 12h2.2M19.8 12H22M4.93 19.07l1.55-1.55M17.52 6.48l1.55-1.55"/>
+          </g>
+        </svg>
+      </button>
+
+      <button class="iconbtn mobilemenu" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <button class="join" id="accountBtn">
+        <span class="joinDot"></span>
+        <span>My Library</span>
+      </button>
+    </div>
   </div>
- </div>
-</section>
-<section class="sec" id="categories"><div class="sh"><div><h2>Categories</h2><p>Pick a category to filter the rows below</p></div></div>
- <div class="cats" id="gCats"></div>
- <p class="qbar" id="qBar" hidden>Showing results for “<span></span>” <button data-clearq>Clear</button></p>
-</section>
-<section class="sec" id="continue"><div class="sh"><div><h2>Continue watching</h2><p>Pick up where you stopped</p></div></div><div class="cont" id="gCont"></div></section>
-<section class="sec" id="trending"><div class="sh"><div><h2>Trending</h2><p>What viewers are exploring right now</p></div><a href="#latest">See all →</a></div><div class="grid" id="gTrending"></div></section>
-<section class="sec" id="latest"><div class="sh"><div><h2>Latest releases</h2><p>Fresh picks, recently added</p></div><a href="#latest">View all →</a></div><div class="grid" id="gLatest"></div></section>
-<section class="sec" id="popular"><div class="sh"><div><h2>Popular</h2><p>Top-rated by the community</p></div></div><div class="grid" id="gPopular"></div></section>
-<section class="sec" id="recommended"><div class="sh"><div><h2>Recommended</h2><p>Picked to match your taste</p></div></div><div class="grid" id="gRec"></div></section>
-<section class="sec" id="creators"><div class="sh"><div><h2>Creator spotlight</h2><p>Follow the creators you want to hear from</p></div></div><div class="creators" id="gCreators"></div></section>
-<section class="sec" id="favorites"><div class="sh"><div><h2>Your favorites</h2><p>Saved to this browser</p></div></div><div class="grid" id="gFav"></div></section>
+
+  <!-- Live Search Bar -->
+  <div class="wrap searchbar" id="searchBar" role="search">
+    <div class="searchfield">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--muted)">
+        <circle cx="11" cy="11" r="6.5"/>
+        <path d="m16 16 4.5 4.5"/>
+      </svg>
+      <input id="searchInput" type="search" placeholder="Search videos, categories, or creators..." autocomplete="off">
+      <button class="iconbtn" id="closeSearch" aria-label="Close search" style="width:34px;height:34px;border:0;background:transparent">✕</button>
+    </div>
+    <div class="searchMetaBar">
+      <span id="searchLiveStat">Showing all 12 videos</span>
+      <div class="searchQuickTags">
+        <button class="quickTag" data-quick="4K">4K</button>
+        <button class="quickTag" data-quick="Animation">Animation</button>
+        <button class="quickTag" data-quick="Studio Aurora">Studio Aurora</button>
+        <button class="quickTag" data-quick="Spotlight">Spotlight</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive Mobile Menu Drawer -->
+  <div class="wrap mobileDrawer" id="mobileDrawer">
+    <div class="mobileLinks">
+      <a href="#home" data-mnav>Home <span>→</span></a>
+      <a href="#trending" data-mnav>Trending <span>→</span></a>
+      <a href="#latest" data-mnav>Latest Releases <span>→</span></a>
+      <a href="#popular" data-mnav>Popular <span>→</span></a>
+      <a href="#categories" data-mnav>Categories <span>→</span></a>
+      <a href="#creators" data-mnav>Creators <span>→</span></a>
+      <a href="#continue" data-mnav>Continue Watching <span>→</span></a>
+      <a href="#favorites" data-mnav>Saved Videos <span>→</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="home" class="wrap">
+  <!-- Compact category navigation -->
+  <section class="categoryBar" id="categories" aria-label="Browse categories">
+    <span class="categoryBarLabel">Categories</span>
+    <div class="chips" id="chips" role="tablist" aria-label="Content categories">
+      <button class="chip active" data-cat="All" role="tab" aria-selected="true">All videos <span class="chipCount" id="countAll">12</span></button>
+      <button class="chip" data-cat="Featured" role="tab" aria-selected="false">Featured</button>
+      <button class="chip" data-cat="Popular" role="tab" aria-selected="false">Popular</button>
+      <button class="chip" data-cat="New" role="tab" aria-selected="false">New videos</button>
+      <button class="chip" data-cat="Animation" role="tab" aria-selected="false">Animation</button>
+      <button class="chip" data-cat="Lifestyle" role="tab" aria-selected="false">Lifestyle</button>
+      <button class="chip" data-cat="Spotlight" role="tab" aria-selected="false">Spotlight</button>
+    </div>
+    <button class="seeall categoryReset" id="resetCatBtn" type="button">Reset</button>
+  </section>
+
+
+  <!-- Featured Hero Slider -->
+  <section class="hero" aria-label="Featured highlights">
+    <div class="heroBox" id="heroBox">
+      <div class="heroContent">
+        <div class="eyebrow">
+          <i class="liveDot"></i>
+          <span id="heroEyebrow">FEATURED VIDEO</span>
+        </div>
+        <h1 id="heroTitle">Explore the<br><em>video library.</em></h1>
+        <p id="heroDesc">Browse featured videos, explore categories, and discover the latest additions to the BANANA PORNO video library.</p>
+        <div class="heroBtns">
+          <button class="primary" id="exploreBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></svg>
+            <span>Explore videos</span>
+          </button>
+          <button class="secondary" id="heroPreviewBtn">Preview video</button>
+        </div>
+      </div>
+
+      <div class="heroVisual" aria-hidden="true">
+        <div class="heroOrb"></div>
+        <div class="heroVisualCard">
+          <div class="heroCardTop">
+            <span class="heroPill" id="heroCardBadge">4K HDR</span>
+            <span style="color:var(--gold);font-size:12px;font-weight:800">★ 4.9</span>
+          </div>
+          <div class="heroVisualCenter">
+            <svg viewBox="0 0 34 34" fill="none">
+              <use href="#banana-emblem"/>
+            </svg>
+          </div>
+          <div class="heroCardMeta">
+            <strong id="heroCardName">Midnight in Motion</strong>
+            <span id="heroCardSub">Studio Aurora · 12:48</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slideControls" aria-label="Slider controls">
+        <button class="slideArrow" id="prevSlide" aria-label="Previous slide">‹</button>
+        <div id="dots"></div>
+        <button class="slideArrow" id="nextSlide" aria-label="Next slide">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Section -->
+  <section class="section" id="trending">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+        </span>
+        <div>
+          <h2>Trending videos</h2>
+          <p>Videos getting the most attention right now</p>
+        </div>
+      </div>
+      <a class="seeall" href="#popular">View popular →</a>
+    </div>
+    <div class="grid" id="trendingGrid"></div>
+  </section>
+
+  <!-- Continue Watching Section -->
+  <section class="section" id="continue">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <div>
+          <h2>Watch history</h2>
+          <p>Continue from where you stopped</p>
+        </div>
+      </div>
+      <a class="seeall" href="#favorites">Saved videos →</a>
+    </div>
+    <div class="grid" id="continueGrid"></div>
+  </section>
+
+  <!-- Latest Releases Section -->
+  <section class="section" id="latest">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+        </span>
+        <div>
+          <h2>Recently added</h2>
+          <p>The newest videos added to the library</p>
+        </div>
+      </div>
+      <a class="seeall" href="#recommended">Recommended →</a>
+    </div>
+    <div class="grid" id="latestGrid"></div>
+  </section>
+
+  <!-- Popular Section -->
+  <section class="section" id="popular">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <div>
+          <h2>Most popular</h2>
+          <p>Popular videos viewers are exploring</p>
+        </div>
+      </div>
+      <a class="seeall" href="#categories">Browse categories →</a>
+    </div>
+    <div class="grid" id="popularGrid"></div>
+  </section>
+
+  <!-- Recommended Section -->
+  <section class="section" id="recommended">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        </span>
+        <div>
+          <h2>More videos to explore</h2>
+          <p>Discover more videos from the library</p>
+        </div>
+      </div>
+      <a class="seeall" href="#creators">Meet creators →</a>
+    </div>
+    <div class="grid" id="recommendedGrid"></div>
+  </section>
+
+  <!-- Creator Spotlight Section -->
+  <section class="section" id="creators">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+        </span>
+        <div>
+          <h2>Featured creators</h2>
+          <p>Explore the studios and creators behind the videos</p>
+        </div>
+      </div>
+      <span class="seeall" style="cursor:default">4 Featured Creators</span>
+    </div>
+    <div class="creatorRow" id="creatorRow"></div>
+  </section>
+
+  <!-- Saved Videos Section -->
+  <section class="section" id="favorites">
+    <div class="sectionHead">
+      <div class="sectionTitleGroup">
+        <span class="secIcon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        <div>
+          <h2>Your saved videos</h2>
+          <p>Your saved videos are stored in this browser</p>
+        </div>
+      </div>
+      <button class="seeall" id="clearFavsBtn" type="button">Clear saved</button>
+    </div>
+    <div class="grid" id="favoritesGrid"></div>
+  </section>
 </main>
 
-<footer class="footer"><div class="wrap fl">
- <span>© 2026 BANANA PORNO · Demo interface for lawful, consent-based 18+ content.</span>
- <nav class="flinks"><button data-info="About">About</button><button data-info="Privacy">Privacy</button><button data-info="Terms">Terms</button><button data-info="Content removal">Content removal</button><button data-info="Help">Help</button></nav>
-</div></footer>
+<footer>
+  <div class="wrap foot">
+    <div class="footBrand">
+      <span class="logoMark" style="width:30px;height:30px;border-radius:9px">
+        <svg viewBox="0 0 34 34" fill="none" style="width:20px;height:20px" aria-hidden="true">
+          <use href="#banana-emblem"/>
+        </svg>
+      </span>
+      <span>© 2026 BANANA PORNO · Front-end UI prototype with fictional placeholder media.</span>
+    </div>
+    <div class="footlinks">
+      <a href="#home" data-info="About BANANA PORNO">About</a>
+      <a href="#home" data-info="Privacy & Local Storage">Privacy</a>
+      <a href="#home" data-info="Terms of Prototype Use">Terms</a>
+      <a href="#home" data-info="Content Moderation & Removal Policy">Content removal</a>
+      <a href="#home" data-info="Help & Keyboard Shortcuts">Help</a>
+    </div>
+  </div>
+</footer>
 
-<nav class="bnav" aria-label="Mobile navigation">
- <a class="on" href="#home" data-bn><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v8.5a.5.5 0 0 1-.5.5H15v-6H9v6H4.5a.5.5 0 0 1-.5-.5Z"/></svg>Home</a>
- <button data-open="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>Search</button>
- <a href="#categories" data-bn><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>Browse</a>
- <a href="#favorites" data-bn><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg>Saved</a>
- <button data-open="menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menu</button>
+<!-- Mobile Bottom Navigation -->
+<nav class="bottomNav" aria-label="Mobile bottom navigation">
+  <div class="bottomNavInner">
+    <a class="bNavItem active" href="#home" data-bnav="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5Z"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="bNavItem" href="#trending" data-bnav="trending">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg>
+      <span>Trending</span>
+    </a>
+    <button class="bNavItem" id="bottomSearchBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <span>Search</span>
+    </button>
+    <a class="bNavItem" href="#categories" data-bnav="categories">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+      <span>Browse</span>
+    </a>
+    <a class="bNavItem" href="#favorites" data-bnav="favorites">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20.5s-7-4.4-7-10.1A4.4 4.4 0 0 1 12 7a4.4 4.4 0 0 1 7 3.4c0 5.7-7 10.1-7 10.1Z"/></svg>
+      <span>Saved</span>
+    </a>
+  </div>
 </nav>
+
+<!-- 18+ Confirmation Dialog -->
+<div class="overlay show" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="modal">
+    <div class="modalLogo">
+      <svg viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <use href="#banana-emblem"/>
+      </svg>
+    </div>
+    <div class="ageBadge">18+ ADULT AUDIENCE GATE</div>
+    <h2 id="ageTitle">Welcome to<br>BANANA PORNO</h2>
+    <p>This interface prototype is intended strictly for adults aged 18 years or older. Please confirm that you meet the legal age of majority in your jurisdiction before entering.</p>
+    <div class="modalActions">
+      <button class="primary" id="ageYes">I am 18 or older — Enter</button>
+      <button class="secondary modalSecondaryBtn" id="ageNo">Exit</button>
+    </div>
+    <p class="fine">Front-end UI demonstration using fictional, non-explicit placeholder media only.</p>
+  </div>
 </div>
 
-<dialog id="ageDlg" aria-labelledby="ageT"><div class="panel">
- <div class="mark lg" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M6 19c5 4.5 13 5 19-4 1 7-3.5 12-10 12.5C10.5 28 6 24.5 6 19Z" fill="#dcae55"/></svg></div>
- <span class="ageBadge">AGE-RESTRICTED EXPERIENCE</span>
- <h2 id="ageT">Welcome to a more personal experience</h2>
- <p>This demo is intended only for adults aged 18 or older. By continuing you confirm that you meet the legal age requirement where you live and agree to view only lawful, consensual, fictional placeholder content.</p>
- <div class="btns"><button class="btn gold" id="ageYes">I am 18 or older</button><button class="btn ghost" id="ageNo">Exit</button></div>
- <p class="fine">Front-end confirmation only. This is not legally sufficient age verification.</p>
-</div></dialog>
+<!-- Preview / Detail Dialog -->
+<div class="overlay" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+  <div class="modal">
+    <button class="iconbtn" id="closeInfo" aria-label="Close dialog" style="position:absolute;right:16px;top:16px;width:36px;height:36px">✕</button>
+    <div class="ageBadge" id="infoBadge">VIDEO PREVIEW</div>
+    <h2 id="infoTitle">Video information</h2>
+    <div class="previewMeta" id="infoMeta"></div>
+    <div class="previewScreen" id="infoScreen">
+      <div class="previewPlayCircle" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5L8 5.5Z"/></svg>
+      </div>
+      <span style="font-size:12.5px;font-weight:700;opacity:0.9">Demo preview — no real video is hosted</span>
+    </div>
+    <p id="infoText">This prototype uses fictional, non-explicit placeholder content. Connect authorized media and backend services for production playback.</p>
+    <div class="modalActions">
+      <button class="primary" id="modalFavBtn">Save video</button>
+      <button class="secondary modalSecondaryBtn" id="infoOk">Close</button>
+    </div>
+  </div>
+</div>
 
-<dialog id="searchDlg" aria-labelledby="sT"><div class="panel sdlg">
- <div class="dhead"><h2 id="sT">Search</h2><button class="ibtn" data-close aria-label="Close search"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
- <label class="sfield"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="q" type="search" placeholder="Search titles, categories or creators" autocomplete="off" aria-label="Search titles, categories or creators"></label>
- <p class="count" id="qCount" aria-live="polite"></p>
- <div class="grid sgrid" id="gSearch"></div>
-</div></dialog>
+<script>
+const items = [
+  { id: 1, title: "Midnight in Motion", creator: "Studio Aurora", cat: "Featured", time: "12:48", views: "1.2M", rating: "4.9", art: "moon", c1: "#31244d", c2: "#6b4c8c", badge: "4K", progress: 68, trending: true, latest: false, popular: true, rec: true },
+  { id: 2, title: "Prism & Shadow", creator: "Neon Frames", cat: "Animation", time: "08:32", views: "845K", rating: "4.8", art: "prism", c1: "#23364f", c2: "#5a4d82", badge: "NEW", progress: 35, trending: true, latest: true, popular: false, rec: true },
+  { id: 3, title: "Golden Hour Stories", creator: "Velvet Motion", cat: "Popular", time: "16:04", views: "2.4M", rating: "4.9", art: "sun", c1: "#4a3326", c2: "#8f6732", badge: "HDR", progress: 84, trending: true, latest: false, popular: true, rec: false },
+  { id: 4, title: "After Hours Lounge", creator: "Orbit Originals", cat: "Spotlight", time: "10:26", views: "632K", rating: "4.7", art: "spark", c1: "#2c2644", c2: "#734e78", badge: "4K", progress: 22, trending: true, latest: false, popular: false, rec: true },
+  { id: 5, title: "Velvet Horizon", creator: "Studio Aurora", cat: "New", time: "09:15", views: "518K", rating: "4.8", art: "wave", c1: "#252946", c2: "#5c4b8a", badge: "NEW", progress: 0, trending: false, latest: true, popular: false, rec: true },
+  { id: 6, title: "Studio Sessions Vol. 4", creator: "Velvet Motion", cat: "Lifestyle", time: "14:51", views: "921K", rating: "4.8", art: "film", c1: "#3c2742", c2: "#7d586e", badge: "HD", progress: 0, trending: false, latest: true, popular: true, rec: false },
+  { id: 7, title: "Celestial Drift", creator: "Orbit Originals", cat: "Featured", time: "11:09", views: "1.8M", rating: "4.9", art: "orbit", c1: "#24223d", c2: "#635494", badge: "4K", progress: 0, trending: false, latest: false, popular: true, rec: true },
+  { id: 8, title: "Amber Reflections", creator: "Neon Frames", cat: "Popular", time: "07:42", views: "704K", rating: "4.7", art: "diamond", c1: "#473524", c2: "#7d5b34", badge: "HD", progress: 0, trending: false, latest: true, popular: true, rec: false },
+  { id: 9, title: "Nocturne Sketches", creator: "Neon Frames", cat: "Animation", time: "13:18", views: "490K", rating: "4.8", art: "prism", c1: "#292344", c2: "#59487d", badge: "4K", progress: 0, trending: false, latest: true, popular: false, rec: true },
+  { id: 10, title: "Silk & Brass", creator: "Studio Aurora", cat: "Spotlight", time: "15:02", views: "1.1M", rating: "4.9", art: "spark", c1: "#3b2c3d", c2: "#8a6838", badge: "HDR", progress: 0, trending: true, latest: false, popular: true, rec: false },
+  { id: 11, title: "Evening Atelier", creator: "Velvet Motion", cat: "Lifestyle", time: "09:54", views: "388K", rating: "4.6", art: "film", c1: "#2f2740", c2: "#67517a", badge: "HD", progress: 0, trending: false, latest: true, popular: false, rec: true },
+  { id: 12, title: "Solstice Archive", creator: "Orbit Originals", cat: "New", time: "18:20", views: "615K", rating: "4.8", art: "orbit", c1: "#2a243b", c2: "#785a46", badge: "4K", progress: 0, trending: false, latest: true, popular: false, rec: true }
+];
 
-<dialog id="detDlg" aria-labelledby="dT"><div class="panel dpanel">
- <button class="ibtn close" data-close aria-label="Close details"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
- <div class="dart" id="dArt"><span class="glyph" id="dGlyph" aria-hidden="true"></span></div>
- <div class="dbody">
-  <span class="ageBadge" id="dCat"></span>
-  <h2 id="dT"></h2>
-  <div class="meta" id="dMeta"></div>
-  <p id="dDesc"></p>
-  <div class="btns"><button class="btn gold" data-play>▶ Play preview</button><button class="btn ghost" id="dFav" data-dfav>♡ Save</button></div>
-  <p class="fine">Placeholder content. No real media is streamed in this prototype.</p>
- </div>
-</div></dialog>
+const creatorsData = [
+  { id: "c1", initial: "SA", name: "Studio Aurora", role: "Cinematography · 42 releases" },
+  { id: "c2", initial: "NF", name: "Neon Frames", role: "2D/3D Animation · 29 releases" },
+  { id: "c3", initial: "VM", name: "Velvet Motion", role: "Lifestyle & Editorial · 36 releases" },
+  { id: "c4", initial: "OO", name: "Orbit Originals", role: "Spotlight Director · 19 releases" }
+];
 
-<dialog id="menuDlg" aria-label="Menu"><div class="panel mpanel">
- <div class="dhead"><strong>Menu</strong><button class="ibtn" data-close aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
- <nav class="mlinks"><a href="#home">Home</a><a href="#trending">Trending</a><a href="#latest">Latest releases</a><a href="#popular">Popular</a><a href="#categories">Categories</a><a href="#creators">Creators</a><a href="#favorites">Favorites</a><button data-theme-toggle>Switch theme</button></nav>
-</div></dialog>
+const slides = [
+  {
+    eyebrow: "FEATURED VIDEO",
+    title: "Explore the<br><em>video library.</em>",
+    desc: "A refined streaming experience designed around calm charcoal surfaces, muted purple accents, and effortless discovery.",
+    badge: "4K HDR",
+    cardName: "Midnight in Motion",
+    cardSub: "Studio Aurora · 12:48",
+    itemId: 1
+  },
+  {
+    eyebrow: "FRESH RELEASES",
+    title: "Hand-picked<br><em>studio stories.</em>",
+    desc: "Explore new animations, visual essays, and spotlight collections updated daily in a distraction-free interface.",
+    badge: "NEW DROP",
+    cardName: "Velvet Horizon",
+    cardSub: "Studio Aurora · 09:15",
+    itemId: 5
+  },
+  {
+    eyebrow: "PERSONAL LIBRARY",
+    title: "Curate what<br><em>moves you.</em>",
+    desc: "Bookmark titles locally, filter across categories in real time, and pick up right where you left off.",
+    badge: "SPOTLIGHT",
+    cardName: "Golden Hour Stories",
+    cardSub: "Velvet Motion · 16:04",
+    itemId: 3
+  }
+];
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<section id="declined" hidden><div><h1>Access declined</h1><p>This experience is restricted to adults.</p></div></section>
-<script src="app.js"></script>
+const artIcons = {
+  moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>',
+  prism: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 3 21 19 3 19"/></svg>',
+  sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22"/></svg>',
+  spark: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3z"/></svg>',
+  wave: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12c2.5-3 5-3 7.5 0s5 3 7.5 0 3-1.5 3-1.5"/><path d="M3 16.5c2.5-3 5-3 7.5 0s5 3 7.5 0"/></svg>',
+  film: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><polygon points="10 9 15 12 10 15" fill="currentColor" stroke="none"/></svg>',
+  orbit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-25 12 12)"/></svg>',
+  diamond: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 3 20 12 12 21 4 12"/></svg>'
+};
+
+let slide = 0;
+let slideTimer = null;
+let activeCat = "All";
+let currentModalItemId = null;
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+function getSavedFavs() {
+  try {
+    return JSON.parse(localStorage.getItem("bp-favs") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function setSavedFavs(arr) {
+  localStorage.setItem("bp-favs", JSON.stringify(arr));
+}
+
+function getFollowedCreators() {
+  try {
+    return JSON.parse(localStorage.getItem("bp-creators") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function cardHTML(x, showProgress = false) {
+  const saved = getSavedFavs().includes(x.id);
+  const progressBar = showProgress && x.progress > 0
+    ? `<div class="progressTrack" aria-label="${x.progress}% watched"><div class="progressFill" style="width:${x.progress}%"></div></div>`
+    : "";
+
+  return `
+    <article class="card" data-id="${x.id}" tabindex="0" role="button" aria-label="Preview ${x.title} by ${x.creator}">
+      <div class="poster" style="--c1:${x.c1};--c2:${x.c2}">
+        <div class="posterArt">
+          <div class="artBadge3d">${artIcons[x.art] || artIcons.spark}</div>
+        </div>
+        <span class="quality">${x.badge}</span>
+        <span class="duration">${x.time}</span>
+        <button class="fav ${saved ? "saved" : ""}" data-fav="${x.id}" type="button" aria-label="${saved ? "Remove from favorites" : "Save video"}" aria-pressed="${saved}">
+          ${saved ? "♥" : "♡"}
+        </button>
+        ${progressBar}
+      </div>
+      <div class="cardInfo">
+        <div style="min-width:0">
+          <h3>${x.title}</h3>
+          <div class="meta">${x.creator} · ${x.cat} · ${x.views}</div>
+        </div>
+        <span class="rating">★ ${x.rating}</span>
+      </div>
+    </article>
+  `;
+}
+
+function renderGrid(selector, list, emptyMsg, showProgress = false) {
+  const el = $(selector);
+  if (!el) return;
+  el.innerHTML = list.length
+    ? list.map((item) => cardHTML(item, showProgress)).join("")
+    : `<div class="empty">${emptyMsg}</div>`;
+}
+
+function renderCreators() {
+  const followed = getFollowedCreators();
+  $("#creatorRow").innerHTML = creatorsData.map((c) => {
+    const isFollowing = followed.includes(c.id);
+    return `
+      <div class="creator">
+        <div class="creatorLeft">
+          <div class="avatar">${c.initial}</div>
+          <div style="min-width:0">
+            <strong>${c.name}</strong>
+            <small>${c.role}</small>
+          </div>
+        </div>
+        <button class="followBtn ${isFollowing ? "following" : ""}" data-follow="${c.id}" type="button">
+          ${isFollowing ? "Following" : "Follow"}
+        </button>
+      </div>
+    `;
+  }).join("");
+}
+
+function render() {
+  const q = $("#searchInput").value.trim().toLowerCase();
+  const filtered = items.filter((x) => {
+    const matchesCat = activeCat === "All" || x.cat === activeCat;
+    const matchesQuery = !q || `${x.title} ${x.cat} ${x.creator} ${x.badge}`.toLowerCase().includes(q);
+    return matchesCat && matchesQuery;
+  });
+
+  // Update search & filter status indicators
+  $("#searchLiveStat").textContent = q
+    ? `Found ${filtered.length} matching ${filtered.length === 1 ? "title" : "titles"} for "${$("#searchInput").value.trim()}"`
+    : `Showing ${filtered.length} of ${items.length} curated items`;
+
+  const filterBanner = $("#filterStatus");
+  if (activeCat !== "All" || q) {
+    filterBanner.classList.add("show");
+    const parts = [];
+    if (activeCat !== "All") parts.push(`Category: ${activeCat}`);
+    if (q) parts.push(`Search: "${$("#searchInput").value.trim()}"`);
+    $("#filterStatusText").textContent = `Active filter — ${parts.join(" · ")} (${filtered.length} results)`;
+  } else {
+    filterBanner.classList.remove("show");
+  }
+
+  // Watch history (items with progress > 0, filtered if active)
+  const continueList = filtered.filter((x) => x.progress > 0).slice(0, 4);
+  renderGrid("#continueGrid", continueList, "No in-progress titles match this filter.", true);
+
+  // Trending
+  const trendingList = (activeCat === "All" && !q)
+    ? items.filter((x) => x.trending).slice(0, 4)
+    : filtered.slice(0, 4);
+  renderGrid("#trendingGrid", trendingList, "No trending titles match your current filter.");
+
+  // Recently added
+  const latestList = (activeCat === "All" && !q)
+    ? items.filter((x) => x.latest).slice(0, 4)
+    : [...filtered].reverse().slice(0, 4);
+  renderGrid("#latestGrid", latestList, "No latest releases match your current filter.");
+
+  // Popular
+  const popularList = (activeCat === "All" && !q)
+    ? items.filter((x) => x.popular).slice(0, 4)
+    : filtered.filter((x) => x.popular).slice(0, 4);
+  renderGrid("#popularGrid", popularList, "No popular titles match your current filter.");
+
+  // Recommended
+  const recList = (activeCat === "All" && !q)
+    ? items.filter((x) => x.rec).slice(0, 4)
+    : filtered.filter((x) => x.rec).slice(0, 4);
+  renderGrid("#recommendedGrid", recList, "No recommended titles match your current filter.");
+
+  // Saved Videos
+  const savedIds = getSavedFavs();
+  const favItems = items.filter((x) => savedIds.includes(x.id));
+  renderGrid("#favoritesGrid", favItems, "Tap the heart icon on any card to save titles locally to this browser.");
+
+  // Header Badge Count
+  const badge = $("#favCountBadge");
+  badge.textContent = savedIds.length;
+  badge.classList.toggle("hidden", savedIds.length === 0);
+}
+
+function setSlide(n) {
+  slide = (n + slides.length) % slides.length;
+  const s = slides[slide];
+  $("#heroEyebrow").textContent = s.eyebrow;
+  $("#heroTitle").innerHTML = s.title;
+  $("#heroDesc").textContent = s.desc;
+  $("#heroCardBadge").textContent = s.badge;
+  $("#heroCardName").textContent = s.cardName;
+  $("#heroCardSub").textContent = s.cardSub;
+  $("#dots").innerHTML = slides
+    .map((_, i) => `<button class="slideDot ${i === slide ? "active" : ""}" data-slide="${i}" aria-label="Go to slide ${i + 1}"></button>`)
+    .join("");
+}
+
+function startSlides() {
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => setSlide(slide + 1), 6000);
+}
+
+function openItemDialog(item) {
+  currentModalItemId = item.id;
+  $("#infoBadge").textContent = `${item.cat.toUpperCase()} · ${item.badge}`;
+  $("#infoTitle").textContent = item.title;
+  $("#infoMeta").innerHTML = `
+    <span class="previewTag">${item.creator}</span>
+    <span class="previewTag">${item.time}</span>
+    <span class="previewTag">${item.views} views</span>
+    <span class="previewTag">★ ${item.rating}</span>
+  `;
+  $("#infoScreen").style.background = `linear-gradient(135deg, ${item.c1}, ${item.c2})`;
+  $("#infoText").textContent = `Fictional non-explicit preview for "${item.title}" produced by ${item.creator}. Connect authorized media streams for production playback.`;
+  const isSaved = getSavedFavs().includes(item.id);
+  $("#modalFavBtn").style.display = "inline-flex";
+  $("#modalFavBtn").textContent = isSaved ? "♥ Saved in favorites" : "♡ Save video";
+  $("#infoModal").classList.add("show");
+}
+
+function openInfoNotice(title, text) {
+  currentModalItemId = null;
+  $("#infoBadge").textContent = "PLATFORM INFO";
+  $("#infoTitle").textContent = title;
+  $("#infoMeta").innerHTML = "";
+  $("#infoScreen").style.background = "linear-gradient(135deg, var(--purple-deep), #1c1926)";
+  $("#infoText").textContent = text;
+  $("#modalFavBtn").style.display = "none";
+  $("#infoModal").classList.add("show");
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("bp-theme", theme);
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.setAttribute("content", theme === "light" ? "#f6f5f9" : "#121116");
+}
+
+// Initialize saved theme
+const savedTheme = localStorage.getItem("bp-theme") || "dark";
+applyTheme(savedTheme);
+
+$("#themeToggle").addEventListener("click", () => {
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+  applyTheme(next);
+});
+
+// Search overlay controls
+function toggleSearch(forceOpen) {
+  const bar = $("#searchBar");
+  const open = typeof forceOpen === "boolean" ? forceOpen : !bar.classList.contains("open");
+  bar.classList.toggle("open", open);
+  $("#searchToggle").setAttribute("aria-expanded", String(open));
+  if (open) {
+    $("#searchInput").focus();
+  }
+}
+
+$("#searchToggle").addEventListener("click", () => toggleSearch());
+$("#bottomSearchBtn").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  toggleSearch(true);
+});
+$("#closeSearch").addEventListener("click", () => {
+  toggleSearch(false);
+  $("#searchInput").value = "";
+  render();
+});
+$("#searchInput").addEventListener("input", render);
+
+// Mobile menu drawer
+$("#menuToggle").addEventListener("click", () => {
+  const drawer = $("#mobileDrawer");
+  const open = !drawer.classList.contains("open");
+  drawer.classList.toggle("open", open);
+  $("#menuToggle").setAttribute("aria-expanded", String(open));
+});
+
+// Global click delegation
+document.addEventListener("click", (e) => {
+  // Favorite toggle
+  const favBtn = e.target.closest("[data-fav]");
+  if (favBtn) {
+    e.stopPropagation();
+    const id = Number(favBtn.dataset.fav);
+    let saved = getSavedFavs();
+    saved = saved.includes(id) ? saved.filter((v) => v !== id) : [...saved, id];
+    setSavedFavs(saved);
+    render();
+    return;
+  }
+
+  // Follow creator toggle
+  const followBtn = e.target.closest("[data-follow]");
+  if (followBtn) {
+    const cid = followBtn.dataset.follow;
+    let followed = getFollowedCreators();
+    followed = followed.includes(cid) ? followed.filter((v) => v !== cid) : [...followed, cid];
+    localStorage.setItem("bp-creators", JSON.stringify(followed));
+    renderCreators();
+    return;
+  }
+
+  // Card click -> open preview dialog
+  const card = e.target.closest(".card");
+  if (card) {
+    const item = items.find((i) => i.id === Number(card.dataset.id));
+    if (item) openItemDialog(item);
+    return;
+  }
+
+  // Category chip click
+  const chip = e.target.closest("[data-cat]");
+  if (chip) {
+    activeCat = chip.dataset.cat;
+    $$(".chip").forEach((b) => {
+      const isSelected = b === chip;
+      b.classList.toggle("active", isSelected);
+      b.setAttribute("aria-selected", String(isSelected));
+    });
+    render();
+    return;
+  }
+
+  // Quick search tag
+  const qTag = e.target.closest("[data-quick]");
+  if (qTag) {
+    $("#searchInput").value = qTag.dataset.quick;
+    render();
+    return;
+  }
+
+  // Hero slider dot
+  const dot = e.target.closest("[data-slide]");
+  if (dot) {
+    setSlide(Number(dot.dataset.slide));
+    startSlides();
+    return;
+  }
+
+  // Mobile drawer link close
+  if (e.target.closest("[data-mnav]")) {
+    $("#mobileDrawer").classList.remove("open");
+    $("#menuToggle").setAttribute("aria-expanded", "false");
+  }
+
+  // Footer info links
+  const infoLink = e.target.closest("[data-info]");
+  if (infoLink) {
+    e.preventDefault();
+    openInfoNotice(
+      infoLink.dataset.info,
+      "BANANA PORNO is a front-end UI/UX prototype showcasing responsive layout, dual themes, local favorites, and accessible controls with fictional placeholder content."
+    );
+  }
+});
+
+// Keyboard accessibility for cards & shortcuts
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" && e.target.classList.contains("card")) {
+    const item = items.find((i) => i.id === Number(e.target.dataset.id));
+    if (item) openItemDialog(item);
+  }
+  if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+    e.preventDefault();
+    toggleSearch(true);
+  }
+  if (e.key === "Escape") {
+    $("#infoModal").classList.remove("show");
+    if ($("#searchBar").classList.contains("open")) {
+      toggleSearch(false);
+    }
+  }
+});
+
+// Reset filters & favorites
+$("#resetCatBtn").addEventListener("click", () => {
+  activeCat = "All";
+  $$(".chip").forEach((b) => {
+    const isAll = b.dataset.cat === "All";
+    b.classList.toggle("active", isAll);
+    b.setAttribute("aria-selected", String(isAll));
+  });
+  render();
+});
+
+$("#clearAllFilters").addEventListener("click", () => {
+  activeCat = "All";
+  $("#searchInput").value = "";
+  $$(".chip").forEach((b) => {
+    const isAll = b.dataset.cat === "All";
+    b.classList.toggle("active", isAll);
+    b.setAttribute("aria-selected", String(isAll));
+  });
+  render();
+});
+
+$("#clearFavsBtn").addEventListener("click", () => {
+  setSavedFavs([]);
+  render();
+});
+
+// Hero controls
+$("#prevSlide").addEventListener("click", () => { setSlide(slide - 1); startSlides(); });
+$("#nextSlide").addEventListener("click", () => { setSlide(slide + 1); startSlides(); });
+$("#exploreBtn").addEventListener("click", () => $("#trending").scrollIntoView({ behavior: "smooth" }));
+$("#heroPreviewBtn").addEventListener("click", () => {
+  const item = items.find((i) => i.id === slides[slide].itemId) || items[0];
+  openItemDialog(item);
+});
+
+// Modal actions
+$("#modalFavBtn").addEventListener("click", () => {
+  if (!currentModalItemId) return;
+  let saved = getSavedFavs();
+  saved = saved.includes(currentModalItemId)
+    ? saved.filter((v) => v !== currentModalItemId)
+    : [...saved, currentModalItemId];
+  setSavedFavs(saved);
+  const nowSaved = saved.includes(currentModalItemId);
+  $("#modalFavBtn").textContent = nowSaved ? "♥ Saved in favorites" : "♡ Save video";
+  render();
+});
+
+$("#closeInfo").addEventListener("click", () => $("#infoModal").classList.remove("show"));
+$("#infoOk").addEventListener("click", () => $("#infoModal").classList.remove("show"));
+$("#infoModal").addEventListener("click", (e) => {
+  if (e.target === $("#infoModal")) $("#infoModal").classList.remove("show");
+});
+
+$("#accountBtn").addEventListener("click", () => {
+  openInfoNotice(
+    "My Library Preview",
+    "Account authentication, synced watchlists, and creator subscriptions are reserved for future backend integration in this front-end UI prototype."
+  );
+});
+
+// 18+ Gate
+$("#ageYes").addEventListener("click", () => {
+  $("#ageGate").classList.remove("show");
+  sessionStorage.setItem("bp-age-ok", "1");
+});
+
+$("#ageNo").addEventListener("click", () => {
+  document.body.innerHTML = `
+    <main style="min-height:100vh;display:grid;place-items:center;text-align:center;padding:32px;background:#121116;color:#f3f1f7">
+      <div>
+        <h1 style="font-size:36px;margin-bottom:10px">Access Declined</h1>
+        <p style="color:#938da3">You must be 18 or older to view this prototype.</p>
+      </div>
+    </main>
+  `;
+});
+
+if (sessionStorage.getItem("bp-age-ok") === "1") {
+  $("#ageGate").classList.remove("show");
+}
+
+// Active Nav highlighting on click & scroll
+$$(".nav a, .bNavItem[data-bnav]").forEach((link) => {
+  link.addEventListener("click", () => {
+    const target = link.getAttribute("href");
+    $$(".nav a").forEach((n) => n.classList.toggle("active", n.getAttribute("href") === target));
+    $$(".bNavItem[data-bnav]").forEach((b) => b.classList.toggle("active", b.getAttribute("href") === target));
+  });
+});
+
+// Initial render
+renderCreators();
+render();
+setSlide(0);
+startSlides();
+</script>
 </body>
 </html>
