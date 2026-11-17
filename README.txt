@@ -29,3 +29,9 @@ IMPORTANT NOTICE
 - This is a front-end homepage UI prototype using fictional, non-explicit placeholder content only.
 - No backend, database, real video streaming, or payment processing is included.
 - The 18+ confirmation dialog is a front-end UI demonstration and not legally sufficient age verification.
+
+
+Project files:
+- index.html: page structure
+- style.css: visual styles
+- app.js: interactive behavior
